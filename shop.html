@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj General Store - Shopping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        secondary: '#059669',
+                        accent: '#f97316'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .buy-btn {
+            transition: all 0.2s ease;
+        }
+        .quantity-selector {
+            transition: all 0.3s ease;
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .category-filter.active {
+            background-color: #10b981;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
+                    <i class="fas fa-store mr-2"></i>
+                    Manoj General Store
+                </a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition">Home</a>
+                    <a href="shop.html" class="text-primary font-medium border-b-2 border-primary">Shopping</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium transition">About Us</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <i class="fas fa-shopping-cart text-gray-700 text-xl"></i>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-accent text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobileMenuButton" class="text-gray-700">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden py-4 border-t">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="shop.html" class="text-primary font-medium">Shopping</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4">Shop Daily Essentials</h1>
+            <p class="text-xl opacity-90">Everything you need, delivered with care</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="py-6 bg-white shadow-sm sticky top-16 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap gap-2 justify-center">
+                <button class="category-filter active bg-primary text-white px-4 py-2 rounded-full text-sm font-medium transition" data-category="all">All Products</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="dental">Dental Care</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="bath">Bath & Soap</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="hair">Hair Care</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="men">Men's Grooming</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="women">Women's Beauty</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="baby">Baby Care</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="skin">Skin Care</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="deodorant">Deodorant</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="tissues">Tissues</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="styling">Hair Styling</button>
+                <button class="category-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="travel">Travel</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-store mr-2"></i>
+                        Manoj General Store
+                    </h3>
+                    <p class="text-gray-400">Your trusted neighborhood store for all daily needs.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-white transition">Shopping</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            123 Main Street, New Delhi
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            +91 98765 43210
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            9:00 AM - 9:00 PM
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Manoj General Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Shopping cart to track added products
+        const cart = [];
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Product data with 100+ products
+        const products = [
+            // Dental Care (10 products)
+            { id: 1, name: "Colgate Strong Teeth", price: "85", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Colgate" },
+            { id: 2, name: "Pepsodent Germ Fighter", price: "75", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Pepsodent" },
+            { id: 3, name: "Close-Up Red Gel", price: "70", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Close-Up" },
+            { id: 4, name: "Sensodyne Fresh Mint", price: "120", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Sensodyne" },
+            { id: 5, name: "Dabur Red Paste", price: "80", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Dabur+Red" },
+            { id: 6, name: "Patanjali Dant Kanti", price: "90", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Patanjali" },
+            { id: 7, name: "Oral-B Pro Health", price: "95", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Oral-B" },
+            { id: 8, name: "Meswak Herbal", price: "65", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Meswak" },
+            { id: 9, name: "Anchor White", price: "55", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Anchor" },
+            { id: 10, name: "Cibaca Top", price: "50", category: "dental", image: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=Cibaca" },
+
+            // Bath & Soap (10 products)
+            { id: 11, name: "Lux Soft Touch", price: "38", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Lux" },
+            { id: 12, name: "Lifebuoy Total", price: "32", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Lifebuoy" },
+            { id: 13, name: "Dove Cream Beauty", price: "52", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Dove" },
+            { id: 14, name: "Pears Pure & Gentle", price: "45", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Pears" },
+            { id: 15, name: "Cinthol Original", price: "42", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Cinthol" },
+            { id: 16, name: "Santoor Sandal", price: "35", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Santoor" },
+            { id: 17, name: "Dettol Original", price: "48", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Dettol" },
+            { id: 18, name: "Himalaya Neem", price: "40", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Himalaya" },
+            { id: 19, name: "Margosa Soap", price: "30", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Margosa" },
+            { id: 20, name: "Nirma Bath Soap", price: "28", category: "bath", image: "https://via.placeholder.com/300x300/ef4444/ffffff?text=Nirma" },
+
+            // Hair Care (10 products)
+            { id: 21, name: "Sunsilk Long & Healthy", price: "185", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Sunsilk" },
+            { id: 22, name: "Dove Hair Fall Rescue", price: "225", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Dove+Hair" },
+            { id: 23, name: "Pantene Hair Fall", price: "205", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Pantene" },
+            { id: 24, name: "Head & Shoulders", price: "215", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Head+Shoulders" },
+            { id: 25, name: "Clinic Plus Strong", price: "165", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Clinic+Plus" },
+            { id: 26, name: "Tresemmé Keratin", price: "245", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Tresemme" },
+            { id: 27, name: "Garnier Fructis", price: "195", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Garnier" },
+            { id: 28, name: "L'Oréal Total Repair", price: "285", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=L'Oreal" },
+            { id: 29, name: "Himalaya Herbals", price: "170", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Himalaya" },
+            { id: 30, name: "Biotique Bio", price: "195", category: "hair", image: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Biotique" },
+
+            // Men's Grooming (10 products)
+            { id: 31, name: "Nivea Men Fresh", price: "155", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Nivea+Men" },
+            { id: 32, name: "Beardo Godfather Oil", price: "225", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Beardo" },
+            { id: 33, name: "Man Company Beard", price: "255", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Man+Company" },
+            { id: 34, name: "Gillette Mach3", price: "185", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Gillette" },
+            { id: 35, name: "Park Avenue Voyager", price: "165", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Park+Avenue" },
+            { id: 36, name: "Old Spice Original", price: "175", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Old+Spice" },
+            { id: 37, name: "Wild Stone Hydra", price: "145", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Wild+Stone" },
+            { id: 38, name: "Axe Signature", price: "160", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Axe" },
+            { id: 39, name: "Denver Hamilton", price: "190", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Denver" },
+            { id: 40, name: "Ustraa Beard Oil", price: "210", category: "men", image: "https://via.placeholder.com/300x300/059669/ffffff?text=Ustraa" },
+
+            // Women's Beauty (10 products)
+            { id: 41, name: "Lakmé Absolute", price: "255", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=Lakme" },
+            { id: 42, name: "Maybelline Lipstick", price: "285", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=Maybelline" },
+            { id: 43, name: "L'Oréal True Match", price: "325", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=L'Oreal" },
+            { id: 44, name: "Elle 18 Color Pop", price: "125", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=Elle+18" },
+            { id: 45, name: "Faces Canada Ultime", price: "205", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=Faces+Canada" },
+            { id: 46, name: "Lotus Herbals", price: "185", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=Lotus+Herbals" },
+            { id: 47, name: "Mamaearth Onion Oil", price: "225", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=Mamaearth" },
+            { id: 48, name: "Sugar Cosmetics", price: "265", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=Sugar" },
+            { id: 49, name: "Blue Heaven", price: "155", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=Blue+Heaven" },
+            { id: 50, name: "VLCC Cream", price: "195", category: "women", image: "https://via.placeholder.com/300x300/ec4899/ffffff?text=VLCC" },
+
+            // Baby Care (10 products)
+            { id: 51, name: "Johnson's Baby", price: "185", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Johnson's" },
+            { id: 52, name: "Himalaya Babycare", price: "165", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Himalaya+Baby" },
+            { id: 53, name: "Sebamed Baby", price: "225", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Sebamed" },
+            { id: 54, name: "Chicco Moments", price: "245", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Chicco" },
+            { id: 55, name: "Mother Sparsh", price: "205", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Mother+Sparsh" },
+            { id: 56, name: "Mee Mee Baby", price: "175", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Mee+Mee" },
+            { id: 57, name: "Dove Baby", price: "195", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Dove+Baby" },
+            { id: 58, name: "Mamaearth Baby", price: "215", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Mamaearth+Baby" },
+            { id: 59, name: "Pigeon Baby", price: "235", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Pigeon" },
+            { id: 60, name: "Pampers Diapers", price: "255", category: "baby", image: "https://via.placeholder.com/300x300/f59e0b/ffffff?text=Pampers" },
+
+            // Skin Care (10 products)
+            { id: 61, name: "Vaseline Intensive", price: "125", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Vaseline" },
+            { id: 62, name: "Nivea Soft", price: "145", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Nivea" },
+            { id: 63, name: "Ponds Super Light", price: "135", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Ponds" },
+            { id: 64, name: "Garnier Skin", price: "155", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Garnier" },
+            { id: 65, name: "Olay Total Effects", price: "285", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Olay" },
+            { id: 66, name: "Lotus Herbals Cream", price: "165", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Lotus" },
+            { id: 67, name: "Himalaya Herbals", price: "115", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Himalaya" },
+            { id: 68, name: "Biotique Bio", price: "175", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Biotique" },
+            { id: 69, name: "Patanjali Cream", price: "105", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Patanjali" },
+            { id: 70, name: "Joy Skin Cream", price: "95", category: "skin", image: "https://via.placeholder.com/300x300/84cc16/ffffff?text=Joy" },
+
+            // Deodorant & Perfume (10 products)
+            { id: 71, name: "Fogg Scent", price: "205", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Fogg" },
+            { id: 72, name: "Engage W2", price: "185", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Engage" },
+            { id: 73, name: "Nivea Deo", price: "195", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Nivea" },
+            { id: 74, name: "Wild Stone Code", price: "175", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Wild+Stone" },
+            { id: 75, name: "Axe Signature", price: "165", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Axe" },
+            { id: 76, name: "Denver Hamilton", price: "215", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Denver" },
+            { id: 77, name: "Set Wet", price: "155", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Set+Wet" },
+            { id: 78, name: "Park Avenue", price: "185", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Park+Avenue" },
+            { id: 79, name: "Yardley London", price: "225", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Yardley" },
+            { id: 80, name: "Envy Perfume", price: "195", category: "deodorant", image: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Envy" },
+
+            // Tissues & Hygiene (10 products)
+            { id: 81, name: "Origami Tissues", price: "125", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=Origami" },
+            { id: 82, name: "Premier Tissues", price: "105", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=Premier" },
+            { id: 83, name: "Scott Tissues", price: "145", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=Scott" },
+            { id: 84, name: "Bella Tissues", price: "115", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=Bella" },
+            { id: 85, name: "Whisper Ultra", price: "185", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=Whisper" },
+            { id: 86, name: "Stayfree Secure", price: "165", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=Stayfree" },
+            { id: 87, name: "Sofy Antibacterial", price: "175", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=Sofy" },
+            { id: 88, name: "Sirona Hygiene", price: "205", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=Sirona" },
+            { id: 89, name: "PeeSafe", price: "225", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=PeeSafe" },
+            { id: 90, name: "Everteen", price: "215", category: "tissues", image: "https://via.placeholder.com/300x300/a855f7/ffffff?text=Everteen" },
+
+            // Hair Styling & Accessories (10 products)
+            { id: 91, name: "Vega Trimmer", price: "255", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Vega" },
+            { id: 92, name: "Philips Hair Dryer", price: "1205", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Philips" },
+            { id: 93, name: "Syska Styler", price: "805", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Syska" },
+            { id: 94, name: "Havells Dryer", price: "905", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Havells" },
+            { id: 95, name: "Nova Trimmer", price: "605", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Nova" },
+            { id: 96, name: "Livon Serum", price: "185", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Livon" },
+            { id: 97, name: "Streax Serum", price: "205", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Streax" },
+            { id: 98, name: "Brylcreem Cream", price: "155", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Brylcreem" },
+            { id: 99, name: "Gatsby Styling", price: "175", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Gatsby" },
+            { id: 100, name: "Streax Hair Color", price: "225", category: "styling", image: "https://via.placeholder.com/300x300/f97316/ffffff?text=Streax+Color" },
+
+            // Travel & Miscellaneous (10 products)
+            { id: 101, name: "Dettol Handwash", price: "85", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Dettol" },
+            { id: 102, name: "Lifebuoy Handwash", price: "75", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Lifebuoy" },
+            { id: 103, name: "Himalaya Facewash", price: "95", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Himalaya" },
+            { id: 104, name: "Biotique Facewash", price: "115", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Biotique" },
+            { id: 105, name: "Patanjali Facewash", price: "90", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Patanjali" },
+            { id: 106, name: "Colgate Travel Kit", price: "65", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Colgate" },
+            { id: 107, name: "Vaseline Lip Care", price: "75", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Vaseline" },
+            { id: 108, name: "Nivea Lip Care", price: "95", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Nivea" },
+            { id: 109, name: "Dove Travel Kit", price: "105", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Dove" },
+            { id: 110, name: "Mamaearth Travel", price: "125", category: "travel", image: "https://via.placeholder.com/300x300/14b8a6/ffffff?text=Mamaearth" }
+        ];
+
+        // Function to render products
+        function renderProducts(category = 'all') {
+            const productsGrid = document.getElementById('productsGrid');
+            productsGrid.innerHTML = '';
+            
+            const filteredProducts = category === 'all' 
+                ? products 
+                : products.filter(product => product.category === category);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100';
+                productCard.innerHTML = `
+                    <div class="relative">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 left-2 bg-primary text-white px-2 py-1 rounded-full text-xs">${product.category.toUpperCase()}</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800 mb-1 truncate">${product.name}</h3>
+                        <p class="text-primary font-bold text-lg mb-3">₹${product.price}</p>
+                        <div class="flex justify-between items-center">
+                            <button id="buy-btn-${product.id}" 
+                                    class="buy-btn bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-secondary transition blink">
+                                Buy
+                            </button>
+                            <div id="quantity-selector-${product.id}" 
+                                 class="quantity-selector hidden flex items-center space-x-3 bg-gray-100 rounded-lg px-3 py-2">
+                                <button class="decrement-btn w-6 h-6 bg-white rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition">-</button>
+                                <span class="quantity-display font-semibold">1</span>
+                                <button class="increment-btn w-6 h-6 bg-white rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+                
+                // Add event listeners for this product
+                setupProductEvents(product.id);
+            });
+        }
+
+        // Function to setup event listeners for a product
+        function setupProductEvents(productId) {
+            const buyBtn = document.getElementById(`buy-btn-${productId}`);
+            const quantitySelector = document.getElementById(`quantity-selector-${productId}`);
+            const decrementBtn = quantitySelector.querySelector('.decrement-btn');
+            const incrementBtn = quantitySelector.querySelector('.increment-btn');
+            const quantityDisplay = quantitySelector.querySelector('.quantity-display');
+            
+            let quantity = 1;
+            
+            // Buy button click - show quantity selector
+            buyBtn.addEventListener('click', function() {
+                buyBtn.classList.add('hidden');
+                quantitySelector.classList.remove('hidden');
+                buyBtn.classList.remove('blink');
+                
+                // Add to cart
+                addToCart(productId, quantity);
+            });
+            
+            // Increment quantity
+            incrementBtn.addEventListener('click', function() {
+                quantity++;
+                quantityDisplay.textContent = quantity;
+                updateCartItem(productId, quantity);
+            });
+            
+            // Decrement quantity
+            decrementBtn.addEventListener('click', function() {
+                if (quantity > 1) {
+                    quantity--;
+                    quantityDisplay.textContent = quantity;
+                    updateCartItem(productId, quantity);
+                } else {
+                    // If quantity becomes 0, revert to Buy button
+                    quantitySelector.classList.add('hidden');
+                    buyBtn.classList.remove('hidden');
+                    buyBtn.classList.add('blink');
+                    removeFromCart(productId);
+                }
+            });
+        }
+
+        // Cart management functions
+        function addToCart(productId, quantity) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (!existingItem) {
+                cart.push({
+                    id: productId,
+                    name: product.name,
+                    price: product.price,
+                    quantity: quantity,
+                    image: product.image
+                });
+                console.log('Added to cart:', product.name);
+            }
+            
+            updateCartCount();
+            console.log('Cart:', cart);
+        }
+
+        function updateCartItem(productId, quantity) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity = quantity;
+                console.log('Updated cart item:', item.name, 'Quantity:', quantity);
+            }
+            
+            updateCartCount();
+            console.log('Cart:', cart);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            console.log('Removed from cart:', productId);
+            
+            updateCartCount();
+            console.log('Cart:', cart);
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+
+        // Initialize with all products
+        renderProducts();
+
+        // Category filter functionality
+        document.querySelectorAll('.category-filter').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.category-filter').forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                this.classList.add('active', 'bg-primary', 'text-white');
+                
+                // Filter products
+                const category = this.getAttribute('data-category');
+                renderProducts(category);
+            });
+        });
+    </script>
+</body>
+</html>

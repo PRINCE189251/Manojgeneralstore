@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj General Store - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1e40af',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="text-2xl font-bold text-primary">Manoj General Store</a>
+                
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="shop.html" class="text-gray-700 hover:text-primary font-medium">Shopping</a>
+                    <a href="about.html" class="text-primary font-medium">About Us</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="languageToggle" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary transition">
+                        हिंदी / English
+                    </button>
+                    <div class="md:hidden">
+                        <button id="mobileMenuButton" class="text-gray-700">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden py-4 border-t">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="shop.html" class="text-gray-700 hover:text-primary font-medium">Shopping</a>
+                    <a href="about.html" class="text-primary font-medium">About Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <h1 id="pageTitle" class="text-3xl font-bold">About Us</h1>
+            <p id="pageSubtitle" class="mt-2">Learn more about Manoj General Store and our mission</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                    <h2 id="aboutTitle" class="text-2xl font-bold text-gray-800 mb-4">Our Story</h2>
+                    <p id="aboutText1" class="text-gray-600 mb-4">
+                        Manoj General Store was established in 2008 with a simple mission: to provide high-quality daily essentials to our community at affordable prices. Over the years, we've grown from a small neighborhood shop to a trusted destination for all household needs.
+                    </p>
+                    <p id="aboutText2" class="text-gray-600 mb-4">
+                        We take pride in our commitment to customer satisfaction and our deep understanding of the products that matter most to our customers. Our carefully curated selection includes only the best brands across various categories.
+                    </p>
+                    <p id="aboutText3" class="text-gray-600">
+                        Whether you're looking for personal care items, baby products, or household essentials, you can count on Manoj General Store to have what you need when you need it.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                    <h2 id="creatorTitle" class="text-2xl font-bold text-gray-800 mb-4">About the Creator</h2>
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/3 mb-4 md:mb-0">
+                            <div class="w-32 h-32 bg-primary rounded-full flex items-center justify-center mx-auto">
+                                <span class="text-white text-4xl font-bold">P</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 md:pl-8">
+                            <h3 id="creatorName" class="text-xl font-semibold text-gray-800 mb-2">Prince</h3>
+                            <p id="creatorDesc" class="text-gray-600 mb-4">
+                                Prince is a passionate web developer with expertise in creating modern, responsive websites. This e-commerce platform for Manoj General Store was designed and developed to showcase the store's wide range of products and provide customers with a seamless online shopping experience.
+                            </p>
+                            <p id="creatorMission" class="text-gray-600">
+                                The goal was to create a user-friendly website that reflects the trust and reliability that Manoj General Store has built over the years in the local community.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h2 id="contactTitle" class="text-2xl font-bold text-gray-800 mb-6">Contact Us</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h3 id="visitTitle" class="text-lg font-semibold text-gray-800 mb-2">Visit Our Store</h3>
+                            <p id="address" class="text-gray-600">123 Main Street, Local Market<br>New Delhi, 110001</p>
+                        </div>
+                        
+                        <div>
+                            <h3 id="hoursTitle" class="text-lg font-semibold text-gray-800 mb-2">Store Hours</h3>
+                            <p id="hours" class="text-gray-600">Monday - Saturday: 9:00 AM - 9:00 PM<br>Sunday: 10:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 id="connectTitle" class="text-lg font-semibold text-gray-800 mb-4">Connect With Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 id="phoneTitle" class="text-lg font-semibold text-gray-800 mb-2">Phone</h3>
+                        <p id="phone" class="text-gray-600">+91 98765 43210</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Manoj General Store</h3>
+                    <p id="footerDesc" class="text-gray-400">Your trusted neighborhood store for all daily needs.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-white transition">Shopping</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p id="copyright">&copy; 2023 Manoj General Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Language toggle functionality
+        let isHindi = false;
+        const hindiText = {
+            pageTitle: "हमारे बारे में",
+            pageSubtitle: "मनोज जनरल स्टोर और हमारे मिशन के बारे में अधिक जानें",
+            aboutTitle: "हमारी कहानी",
+            aboutText1: "मनोज जनरल स्टोर की स्थापना 2008 में एक साधारण मिशन के साथ की गई थी: सस्ती कीमतों पर हमारे समुदाय को उच्च गुणवत्ता वाले दैनिक आवश्यक वस्तुएं प्रदान करना। वर्षों से, हम एक छोटी पड़ोस की दुकान से सभी घरेलू जरूरतों के लिए एक विश्वसनीय स्थान बन गए हैं।",
+            aboutText2: "हम ग्राहक संतुष्टि के प्रति अपनी प्रतिबद्धता और हमारे ग्राहकों के लिए सबसे महत्वपूर्ण उत्पादों की गहरी समझ पर गर्व करते हैं। हमारे सावधानीपूर्वक चयनित विकल्पों में विभिन्न श्रेणियों के केवल सर्वोत्तम ब्रांड शामिल हैं।",
+            aboutText3: "चाहे आप व्यक्तिगत देखभाल वस्तुएं, बच्चों के उत्पाद, या घरेलू आवश्यक वस्तुएं ढूंढ रहे हों, आप मनोज जनरल स्टोर पर भरोसा कर सकते हैं कि आपको जब जरूरत होगी तब आपको वह मिलेगा।",
+            creatorTitle: "निर्माता के बारे में",
+            creatorName: "प्रिंस",
+            creatorDesc: "प्रिंस एक भावुक वेब डेवलपर हैं जिन्हें आधुनिक, उत्तरदायी वेबसाइटें बनाने में विशेषज्ञता प्राप्त है। मनोज जनरल स्टोर के लिए यह ई-कॉमर्स प्लेटफॉर्म स्टोर की उत्पादों की विस्तृत श्रृंखला को प्रदर्शित करने और ग्राहकों को एक सहज ऑनलाइन खरीदारी अनुभव प्रदान करने के लिए डिजाइन और विकसित किया गया था।",
+            creatorMission: "लक्ष्य एक उपयोगकर्ता-अनुकूल वेबसाइट बनाना था जो स्थानीय समुदाय में मनोज जनरल स्टोर द्वारा वर्षों से बनाए गए विश्वास और विश्वसनीयता को दर्शाता है।",
+            contactTitle: "हमसे संपर्क करें",
+            visitTitle: "हमारी दुकान पर आएं",
+            address: "123 मुख्य सड़क, स्थानीय बाजार<br>नई दिल्ली, 110001",
+            hoursTitle: "दुकान के समय",
+            hours: "सोमवार - शनिवार: सुबह 9:00 - रात 9:00<br>रविवार: सुबह 10:00 - रात 8:00",
+            connectTitle: "हमसे जुड़ें",
+            phoneTitle: "फोन",
+            phone: "+91 98765 43210",
+            footerDesc: "आपकी सभी दैनिक जरूरतों के लिए विश्वसनीय पड़ोस की दुकान।",
+            copyright: "© 2023 मनोज जनरल स्टोर। सर्वाधिकार सुरक्षित।"
+        };
+        
+        const englishText = {
+            pageTitle: "About Us",
+            pageSubtitle: "Learn more about Manoj General Store and our mission",
+            aboutTitle: "Our Story",
+            aboutText1: "Manoj General Store was established in 2008 with a simple mission: to provide high-quality daily essentials to our community at affordable prices. Over the years, we've grown from a small neighborhood shop to a trusted destination for all household needs.",
+            aboutText2: "We take pride in our commitment to customer satisfaction and our deep understanding of the products that matter most to our customers. Our carefully curated selection includes only the best brands across various categories.",
+            aboutText3: "Whether you're looking for personal care items, baby products, or household essentials, you can count on Manoj General Store to have what you need when you need it.",
+            creatorTitle: "About the Creator",
+            creatorName: "Prince",
+            creatorDesc: "Prince is a passionate web developer with expertise in creating modern, responsive websites. This e-commerce platform for Manoj General Store was designed and developed to showcase the store's wide range of products and provide customers with a seamless online shopping experience.",
+            creatorMission: "The goal was to create a user-friendly website that reflects the trust and reliability that Manoj General Store has built over the years in the local community.",
+            contactTitle: "Contact Us",
+            visitTitle: "Visit Our Store",
+            address: "123 Main Street, Local Market<br>New Delhi, 110001",
+            hoursTitle: "Store Hours",
+            hours: "Monday - Saturday: 9:00 AM - 9:00 PM<br>Sunday: 10:00 AM - 8:00 PM",
+            connectTitle: "Connect With Us",
+            phoneTitle: "Phone",
+            phone: "+91 98765 43210",
+            footerDesc: "Your trusted neighborhood store for all daily needs.",
+            copyright: "© 2023 Manoj General Store. All rights reserved."
+        };
+        
+        document.getElementById('languageToggle').addEventListener('click', function() {
+            isHindi = !isHindi;
+            const texts = isHindi ? hindiText : englishText;
+            
+            // Update all text elements
+            for (const [key, value] of Object.entries(texts)) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+            
+            // Update button text
+            this.textContent = isHindi ? "English / हिंदी" : "हिंदी / English";
+        });
+    </script>
+</body>
+</html>

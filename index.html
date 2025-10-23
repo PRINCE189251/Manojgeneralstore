@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj General Store - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1e40af',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="text-2xl font-bold text-primary">Manoj General Store</a>
+                
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="shop.html" class="text-gray-700 hover:text-primary font-medium">Shopping</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="languageToggle" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary transition">
+                        हिंदी / English
+                    </button>
+                    <div class="md:hidden">
+                        <button id="mobileMenuButton" class="text-gray-700">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden py-4 border-t">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="shop.html" class="text-gray-700 hover:text-primary font-medium">Shopping</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 id="heroTitle" class="text-4xl md:text-5xl font-bold mb-4">Welcome to Manoj General Store</h1>
+            <p id="heroSubtitle" class="text-xl mb-8">Your one-stop shop for all daily needs</p>
+            <a href="shop.html" id="shopNowBtn" class="bg-white text-primary font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition inline-block">
+                Shop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://images.unsplash.com/photo-1561715276-a2d087060f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Manoj General Store" class="rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 id="aboutTitle" class="text-3xl font-bold text-gray-800 mb-4">About Our Store</h2>
+                    <p id="aboutText1" class="text-gray-600 mb-4">
+                        Manoj General Store has been serving the community for over 15 years, providing high-quality products at affordable prices. We take pride in being your trusted neighborhood store.
+                    </p>
+                    <p id="aboutText2" class="text-gray-600 mb-6">
+                        From personal care to household essentials, we stock a wide range of products from top brands to meet all your daily needs.
+                    </p>
+                    <a href="about.html" id="learnMoreBtn" class="bg-primary text-white font-medium py-2 px-6 rounded-lg hover:bg-secondary transition inline-block">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 id="categoriesTitle" class="text-3xl font-bold text-center text-gray-800 mb-12">Our Product Categories</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Category 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tooth text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 id="category1" class="font-semibold text-gray-800">Dental Care</h3>
+                </div>
+                
+                <!-- Category 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bath text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 id="category2" class="font-semibold text-gray-800">Bath & Soap</h3>
+                </div>
+                
+                <!-- Category 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-air-freshener text-purple-500 text-2xl"></i>
+                    </div>
+                    <h3 id="category3" class="font-semibold text-gray-800">Hair Care</h3>
+                </div>
+                
+                <!-- Category 4 -->
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-male text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 id="category4" class="font-semibold text-gray-800">Men's Grooming</h3>
+                </div>
+                
+                <!-- Category 5 -->
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+                    <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-female text-pink-500 text-2xl"></i>
+                    </div>
+                    <h3 id="category5" class="font-semibold text-gray-800">Women's Beauty</h3>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="shop.html" id="viewAllBtn" class="bg-primary text-white font-medium py-3 px-8 rounded-lg hover:bg-secondary transition inline-block">
+                    View All Categories
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Manoj General Store</h3>
+                    <p id="footerDesc" class="text-gray-400">Your trusted neighborhood store for all daily needs.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-white transition">Shopping</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p id="copyright">&copy; 2023 Manoj General Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Language Toggle Script -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Language toggle functionality
+        let isHindi = false;
+        const hindiText = {
+            heroTitle: "मनोज जनरल स्टोर में आपका स्वागत है",
+            heroSubtitle: "आपकी सभी दैनिक जरूरतों के लिए एकमात्र स्टोर",
+            shopNowBtn: "अभी खरीदें",
+            aboutTitle: "हमारे स्टोर के बारे में",
+            aboutText1: "मनोज जनरल स्टोर 15 वर्षों से समुदाय की सेवा कर रहा है, जो किफायती कीमतों पर उच्च गुणवत्ता वाले उत्पाद प्रदान करता है। हमें आपके विश्वसनीय पड़ोस की दुकान होने पर गर्व है।",
+            aboutText2: "व्यक्तिगत देखभाल से लेकर घरेलू जरूरतों तक, हम आपकी सभी दैनिक जरूरतों को पूरा करने के लिए शीर्ष ब्रांडों की एक विस्तृत श्रृंखला रखते हैं।",
+            learnMoreBtn: "और जानें",
+            categoriesTitle: "हमारे उत्पाद श्रेणियाँ",
+            category1: "दंत देखभाल",
+            category2: "स्नान और साबुन",
+            category3: "बालों की देखभाल",
+            category4: "पुरुषों की देखभाल",
+            category5: "महिलाओं की सुंदरता",
+            viewAllBtn: "सभी श्रेणियाँ देखें",
+            footerDesc: "आपकी सभी दैनिक जरूरतों के लिए विश्वसनीय पड़ोस की दुकान।",
+            copyright: "© 2023 मनोज जनरल स्टोर। सर्वाधिकार सुरक्षित।"
+        };
+        
+        const englishText = {
+            heroTitle: "Welcome to Manoj General Store",
+            heroSubtitle: "Your one-stop shop for all daily needs",
+            shopNowBtn: "Shop Now",
+            aboutTitle: "About Our Store",
+            aboutText1: "Manoj General Store has been serving the community for over 15 years, providing high-quality products at affordable prices. We take pride in being your trusted neighborhood store.",
+            aboutText2: "From personal care to household essentials, we stock a wide range of products from top brands to meet all your daily needs.",
+            learnMoreBtn: "Learn More",
+            categoriesTitle: "Our Product Categories",
+            category1: "Dental Care",
+            category2: "Bath & Soap",
+            category3: "Hair Care",
+            category4: "Men's Grooming",
+            category5: "Women's Beauty",
+            viewAllBtn: "View All Categories",
+            footerDesc: "Your trusted neighborhood store for all daily needs.",
+            copyright: "© 2023 Manoj General Store. All rights reserved."
+        };
+        
+        document.getElementById('languageToggle').addEventListener('click', function() {
+            isHindi = !isHindi;
+            const texts = isHindi ? hindiText : englishText;
+            
+            // Update all text elements
+            for (const [key, value] of Object.entries(texts)) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+            
+            // Update button text
+            this.textContent = isHindi ? "English / हिंदी" : "हिंदी / English";
+        });
+    </script>
+</body>
+</html>

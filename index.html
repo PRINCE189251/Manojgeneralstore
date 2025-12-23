@@ -1,1 +1,1121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Manoj General Store - Yusufpur New Basti | 20 सालों से विश्वसनीय</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* RESET AND BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        html {
+            font-size: 16px;
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: #fff;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        
+        /* CONTAINER - Mobile First */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 12px;
+            margin: 0 auto;
+        }
+        
+        /* LOCATION BANNER */
+        .location-banner {
+            background: linear-gradient(90deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 1002;
+            width: 100%;
+        }
+        
+        /* EMERGENCY BAR */
+        .emergency-bar {
+            background: linear-gradient(90deg, #E91E63, #FF4081);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            position: sticky;
+            top: 35px;
+            z-index: 1001;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(233, 30, 99, 0.3);
+        }
+        
+        .emergency-bar a {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-left: 8px;
+            font-size: 12px;
+            gap: 4px;
+        }
+        
+        /* HEADER */
+        header {
+            background: white;
+            padding: 10px 0;
+            position: sticky;
+            top: 70px;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            width: 100%;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
+            background: linear-gradient(135deg, #E91E63, #FF4081);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            text-align: center;
+        }
+        
+        .logo-text h1 {
+            font-size: 18px;
+            color: #222;
+            line-height: 1.3;
+        }
+        
+        .logo-text .highlight {
+            color: #E91E63;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            font-size: 11px;
+            color: #666;
+            margin-top: 2px;
+        }
+        
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .action-btn {
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex: 1;
+            max-width: 140px;
+            transition: all 0.2s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+        
+        .phone-btn {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+        
+        .action-btn:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            padding: 20px 0;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9));
+            color: white;
+            text-align: center;
+            margin-bottom: 0;
+            width: 100%;
+        }
+        
+        .discount-badge {
+            background: #FF9800;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        
+        .hero h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            padding: 0 5px;
+        }
+        
+        .hero p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            padding: 0 8px;
+            line-height: 1.5;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 280px;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #E91E63;
+        }
+        
+        .btn-accent {
+            background: #FF9800;
+            color: white;
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        /* PRODUCTS SECTION */
+        .products-section {
+            padding: 25px 0;
+            background: #f8f9fa;
+            width: 100%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+        
+        .section-title h2 {
+            font-size: 22px;
+            color: #222;
+            margin-bottom: 8px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #E91E63;
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            width: 100%;
+            padding: 0 5px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF9800;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-img {
+            height: 150px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-img i {
+            font-size: 50px;
+            color: #E91E63;
+            opacity: 0.7;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-info h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: #222;
+            font-weight: 600;
+        }
+        
+        .product-info p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #E91E63;
+            margin-bottom: 12px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn-small {
+            padding: 10px 12px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            flex: 1;
+            transition: all 0.2s;
+            min-height: 40px;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-call {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .btn-small:active {
+            transform: scale(0.98);
+        }
+        
+        /* STORE INFO */
+        .store-info {
+            padding: 25px 0;
+            background: white;
+            width: 100%;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            padding: 0 10px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #E91E63, #FF4081);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 22px;
+        }
+        
+        .info-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #222;
+        }
+        
+        .info-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        /* PAYMENT SECTION */
+        .payment-section {
+            padding: 25px 0;
+            background: #f5f5f5;
+            width: 100%;
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 0 10px;
+        }
+        
+        .payment-method {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+        
+        .payment-method i {
+            font-size: 20px;
+            color: #E91E63;
+        }
+        
+        .payment-method span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #222;
+            color: white;
+            padding: 30px 0 20px;
+            width: 100%;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding: 0 12px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: white;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #E91E63;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        
+        .footer-links li a i {
+            width: 16px;
+            color: #E91E63;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            color: #E91E63;
+            margin-top: 3px;
+            min-width: 16px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 15px;
+            background: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:active {
+            transform: scale(0.95);
+        }
+        
+        /* SPACING FIXES */
+        .spacing-fix {
+            width: 100%;
+            height: 1px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* LANDSCAPE MODE */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .logo {
+                justify-content: flex-start;
+            }
+            
+            .action-buttons {
+                width: auto;
+                justify-content: flex-end;
+            }
+            
+            .hero {
+                padding: 15px 0;
+            }
+            
+            .hero h2 {
+                font-size: 18px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+        
+        /* TABLET */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 20px;
+                max-width: 720px;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .logo {
+                justify-content: flex-start;
+                text-align: left;
+            }
+            
+            .action-buttons {
+                width: auto;
+                justify-content: flex-end;
+            }
+            
+            .hero h2 {
+                font-size: 24px;
+            }
+            
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .btn {
+                max-width: 220px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .product-img {
+                height: 180px;
+            }
+            
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* DESKTOP */
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .info-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* NO SCROLL ON BODY */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
+        /* FIX FOR IOS */
+        input, textarea, select {
+            font-size: 16px !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- LOCATION BANNER -->
+    <div class="location-banner">
+        📍 Yusufpur New Basti, Malikpura (233227) | होम डिलीवरी उपलब्ध
+    </div>
+    
+    <!-- EMERGENCY BAR -->
+    <div class="emergency-bar">
+        📞 ऑर्डर: 8299395479 | 
+        <a href="https://wa.me/918299395479?text=Hello%20Manoj%20General%20Store,%20Yusufpur%20New%20Basti%20se%20order%20karna%20hai" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+    
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Manoj <span class="highlight">General Store</span></h1>
+                        <p>✅ 20 सालों से भरोसेमंद</p>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="tel:8299395479" class="action-btn phone-btn">
+                        <i class="fas fa-phone-alt"></i> कॉल
+                    </a>
+                    <a href="https://wa.me/918299395479?text=Hello%20Manoj%20General%20Store,%20Yusufpur%20New%20Basti%20se%20order%20karna%20hai" 
+                       class="action-btn whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="discount-badge">
+                🎉 जनवरी ऑफर: 5% छूट 🎉
+            </div>
+            
+            <h2>Yusufpur New Basti का अपना स्टोर</h2>
+            
+            <p>
+                कॉस्मेटिक, खिलौने, पौधे, गहने, सभी दैनिक जरूरत का सामान। 
+                20 सालों से विश्वास पर चल रहा है।
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i> प्रोडक्ट्स
+                </a>
+                <a href="tel:8299395479" class="btn btn-accent">
+                    <i class="fas fa-phone-alt"></i> ऑर्डर करें
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>हमारे प्रोडक्ट्स</h2>
+                <p>सब कुछ एक ही जगह</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 - Colgate -->
+                <div class="product-card">
+                    <div class="product-badge">बेस्ट सेलर</div>
+                    <div class="product-img">
+                        <!-- YAHAN PAR TUM APNI IMAGE DAAL SAKTE HO -->
+                        <!-- <img src="your-colgate-image.jpg" alt="Colgate Toothpaste"> -->
+                        <i class="fas fa-toothpaste"></i> <!-- Fallback agar image nahi hai -->
+                    </div>
+                    <div class="product-info">
+                        <h3>कोलगेट टूथपेस्ट</h3>
+                        <p>सभी वैरायटी उपलब्ध | नया स्टॉक</p>
+                        <div class="product-price">₹45 - ₹200</div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/918299395479?text=Hello,%20Mujhe%20Colgate%20Toothpaste%20chahiye%20Manoj%20General%20Store%20se" 
+                               class="btn-small btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="tel:8299395479" class="btn-small btn-call">
+                                <i class="fas fa-phone"></i> कॉल
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 - Toys -->
+                <div class="product-card">
+                    <div class="product-badge">ट्रेंडिंग</div>
+                    <div class="product-img">
+                        <!-- <img src="toys-image.jpg" alt="Kids Toys"> -->
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>बच्चों के खिलौने</h3>
+                        <p>कार, गुड़िया, रिमोट कंट्रोल</p>
+                        <div class="product-price">₹50 - ₹500</div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/918299395479?text=Hello,%20Mujhe%20Kids%20Toys%20chahiye%20Manoj%20General%20Store%20se" 
+                               class="btn-small btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="tel:8299395479" class="btn-small btn-call">
+                                <i class="fas fa-phone"></i> कॉल
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 - Jewellery -->
+                <div class="product-card">
+                    <div class="product-badge">नया आया</div>
+                    <div class="product-img">
+                        <!-- <img src="jewellery-image.jpg" alt="Jewellery"> -->
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>गहने & रिंग्स</h3>
+                        <p>स्टील, चांदी, फैशन ज्वेलरी</p>
+                        <div class="product-price">₹99 - ₹999</div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/918299395479?text=Hello,%20Mujhe%20Jewellery%20aur%20Rings%20chahiye%20Manoj%20General%20Store%20se" 
+                               class="btn-small btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="tel:8299395479" class="btn-small btn-call">
+                                <i class="fas fa-phone"></i> कॉल
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 - Plants -->
+                <div class="product-card">
+                    <div class="product-badge">होम डिलीवरी</div>
+                    <div class="product-img">
+                        <!-- <img src="plants-image.jpg" alt="Indoor Plants"> -->
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>इनडोर पौधे</h3>
+                        <p>मनी प्लांट, तुलसी, फूल वाले</p>
+                        <div class="product-price">₹80 - ₹400</div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/918299395479?text=Hello,%20Mujhe%20Indoor%20Plants%20chahiye%20Manoj%20General%20Store%20se" 
+                               class="btn-small btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="tel:8299395479" class="btn-small btn-call">
+                                <i class="fas fa-phone"></i> कॉल
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- STORE INFO -->
+    <section class="store-info">
+        <div class="container">
+            <div class="section-title">
+                <h2>हमारी सुविधाएं</h2>
+                <p>क्यों चुनें Manoj General Store?</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>होम डिलीवरी</h3>
+                    <p>Yusufpur New Basti में डिलीवरी। नजदीकी लोकेशन में कम चार्ज।</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>9 AM - 9 PM</h3>
+                    <p>सुबह 9 से रात 9 तक खुला। रविवार भी खुला रहता है।</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>20 साल का भरोसा</h3>
+                    <p>20 सालों से Yusufpur New Basti में विश्वसनीय स्टोर।</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>जनवरी ऑफर</h3>
+                    <p>जनवरी में सभी प्रोडक्ट्स पर 5% छूट। लिमिटेड टाइम ऑफर।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PAYMENT -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>भुगतान के विकल्प</h2>
+                <p>आसान भुगतान</p>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>कैश</span>
+                </div>
+                <div class="payment-method">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>PhonePe</span>
+                </div>
+                <div class="payment-method">
+                    <i class="fas fa-qrcode"></i>
+                    <span>UPI QR</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="color: #666; font-size: 14px;">
+                    <strong>PhonePe के लिए:</strong> स्टोर पर QR स्कैनर उपलब्ध है।
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Manoj General Store</h3>
+                    <p style="color: #bbb; font-size: 13px; margin-bottom: 15px; line-height: 1.5;">
+                        20 सालों से Yusufpur New Basti, Malikpura (233227) में विश्वसनीय स्टोर।
+                    </p>
+                    <div class="contact-info">
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div style="font-size: 13px;">
+                                    <strong>पता</strong>
+                                    <p>Yusufpur New Basti, Malikpura<br>Pincode: 233227</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>ऑर्डर के लिए</h3>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="tel:8299395479">
+                                <i class="fas fa-phone-alt"></i> 8299395479
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:9415861345">
+                                <i class="fas fa-phone"></i> 9415861345
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/918299395479" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>स्टोर समय</h3>
+                    <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; font-size: 13px;">
+                        <p style="margin-bottom: 5px;"><strong>सोमवार - रविवार:</strong></p>
+                        <p style="color: #bbb;">9:00 AM - 9:00 PM</p>
+                        <p style="color: #bbb; margin-top: 8px;">रविवार भी खुला</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 Manoj General Store, Yusufpur New Basti</p>
+                <p style="margin-top: 5px;">📱 Mobile Friendly Website</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/918299395479?text=Hello%20Manoj%20General%20Store,%20Yusufpur%20New%20Basti%20se%20order%20karna%20hai" 
+       class="whatsapp-float" 
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script>
+        // Mobile Optimization Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent zoom on mobile
+            document.addEventListener('touchstart', function(e) {
+                if(e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+            
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // WhatsApp auto message with product name
+            document.querySelectorAll('.btn-whatsapp').forEach(button => {
+                if(button.getAttribute('href').includes('text=')) return;
+                
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard ? productCard.querySelector('h3').textContent : 'प्रोडक्ट';
+                    const message = `Hello Manoj General Store,\n\nMujhe "${productName}" chahiye.\n\nAddress: Yusufpur New Basti, Malikpura (233227)\n\nPlease delivery charges aur availability bataiye.\n\nDhanyawad!`;
+                    window.open(`https://wa.me/918299395479?text=${encodeURIComponent(message)}`, '_blank');
+                });
+            });
+            
+            // Call confirmation
+            document.querySelectorAll('a[href^="tel:"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('Calling Manoj General Store...');
+                });
+            });
+            
+            // Touch feedback
+            const buttons = document.querySelectorAll('.btn, .btn-small, .action-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('touchstart', function() {
+                    this.style.opacity = '0.8';
+                });
+                
+                btn.addEventListener('touchend', function() {
+                    this.style.opacity = '1';
+                });
+            });
+            
+            // Fix for iOS viewport height
+            function setVH() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            
+            setVH();
+            window.addEventListener('resize', setVH);
+            window.addEventListener('orientationchange', setVH);
+        });
+        
+        // Prevent context menu on mobile
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
 
